@@ -1,0 +1,299 @@
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="css/style.css"/>
+  <style>
+    td {
+      height:55px;
+      width:50px;
+      border:solid 1px black;
+      text-align:center;
+      background:white;
+      position:relative;
+      overflow: hidden;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .player {
+      height: 15px;
+    }
+    .item {
+      height: 15px;
+      background-color: red;
+    }
+    .env {
+      height: 15px;
+      background-color: black;
+    }
+  </style>
+</head>
+<body>
+<audio id="background_audio" autoplay="autoplay">
+  <source src="../game.mp3" type="audio/mp3" />
+</audio>
+
+  <div class='container'>
+
+  <div style='float:left'>
+    <div class='title'>Critter Crush</div>
+    <div style='background:#333;width:600px;'>
+      <div id="grid" style="margin:0 20px;"> </div>
+    </div>
+    <div id="buttons">
+      <div class="buttonContainer">
+        <div id="btnReset" class="reset button">
+          <div class="buttonText">RESET</div>
+        </div>
+      </div>
+      <div class="coinSlot">
+        <div class="coinInner">
+        <div class='coinLeft'></div>
+        <div class='coinRight'>
+          25&#162;<br />
+          <span style="font-size:11px; text-transform:uppercase">
+            INSERT <br/>COIN TO<br/> <span style='font-size:13px;'>PLAY</span>
+          </span>
+        </div>
+        </div>
+      </div>
+      <div class="buttonContainer" style="float:right">
+        <div id="btnPlay" class="forward button">
+          <div class="buttonText">PLAY</div>
+        </div>
+      </div>
+      <div style="clear:both"></div>
+    </div>
+  </div> <!-- end first column -->
+
+  <!-- Scoreboard -->
+  <div class='scoreBoard rightContainer shadow'>
+    <div id='scoreBoardTitle'>Scoreboard</div>
+    <ul id='botScore'>
+      <li>
+        <img src='../images/critter_player1.gif'/ style='float:left;margin:3px 3px;'>
+        <h1 id='p1Name' style='float:left'>Crush Bot</h1>
+        <h1 id="p1score" style='color:red; float:right;margin-right:10px;'>0000</h1>
+      </li>
+      <div style='clear:both'></div>
+      <li>
+        <img src='../images/critter_player2.gif'/ style='float:left;margin:3px 3px;'>
+        <h1 id='p2Name' style='float:left'>Crush Bot</h1>
+        <h1 id="p2score" style='color:red; float:right;margin-right:10px;'>0000</h1>
+      </li>
+    </ul>
+  </div> <!-- End Scoreboard -->
+
+  <!-- Bot list -->
+  <div class='rightContainer shadow' style='margin-top:20px;'>
+    <h1 style='font-size:26px;padding-left:5px;margin-bottom:7px;'><u>Player1</u></h1>
+    <ul id='botList'>
+      <li id='8083' class='nonActive'>
+        Hangout Bot
+      </li>
+
+      <li id ='8084' class='nonActive'>
+        East Bot
+      </li>
+      <div style='clear:both'></div>
+
+      <li id='8085' class='nonActive'>
+        EastWest Bot
+      </li>
+      <div style='clear:both'></div>
+
+      <div style='clear:both'></div>
+
+      <li id='8086' class='nonActive'>
+        Random Bot
+      </li>
+      <div style='clear:both'></div>
+
+      <li id='8087' class='active p1'>
+        RandomCrush Bot
+      </li>
+
+      <li id='8088' class='nonActive'>
+        Traverse Bot
+      </li>
+    </ul>
+    <h1 style='font-size:26px;padding-left:5px;margin-bottom:7px;'><u>Player2</u></h1>
+      <ul style='margin:0px; padding-left:10px;margin-bottom:10px;'>
+        <li id='8088' class='active p1' style='list-style:none;font-size:22px; color:blue'>
+          RandomCrush Bot
+        </li>
+      </ul>
+
+  </div><!-- end bot list -->
+
+</div>
+    <script type="text/javascript" language="javascript">
+      window.onload=function(){
+        document.getElementById('scoreBoardTitle').className = 'animate';
+        var list = document.getElementById('botList').getElementsByTagName('li');
+
+        for(var i = 0; i < list.length; i++){
+              list[i].onclick = function(){
+                //always have random crush bot
+                if(this.id != '8082' && this.className == "nonActive")
+                  list = document.getElementById('botList')
+                  var botItems = list.getElementsByTagName('li')
+                  for(var i=0; i< botItems.length; i++) {
+                    if(botItems[i].id != "8082")
+                      botItems[i].className = 'nonActive';
+                  }
+                  this.className = 'active p1';
+              }
+        }
+      };
+      var players = [];
+      var board = {{.}};
+      grid = document.getElementById('grid');
+
+      init();
+
+      function init() {
+        if (grid.children.length > 0) {
+          grid.removeChild(grid.children[0]);
+        }
+
+        var table = document.createElement("table");
+
+        // create the board
+        for(y=0; y<board.Height; y++) {
+          var tr = document.createElement('tr');
+          for(x=0; x<board.Width; x++) {
+            var td = document.createElement('td');
+            td.setAttribute('id', x + ":" + y);
+            tr.appendChild(td);
+          }
+          table.appendChild(tr);
+        }
+
+        grid.appendChild(table);
+
+        // load env
+        board.Environments.forEach(function(env) {
+          var id = env.X + ":" + env.Y;
+          var div = document.createElement('div');
+          var eName = "env_" + env.Id;
+          div.setAttribute("class", eName);
+          document.getElementById(id).appendChild(div);
+        })
+
+        // load players
+        board.Players.forEach(function(player) {
+          var id = player.X + ":" + player.Y;
+          var div = document.createElement('div');
+          var pName = "player_" + player.Id;
+          div.setAttribute("class", pName);
+          document.getElementById(id).appendChild(div);
+
+          players.push(div);
+        })
+
+        // load non players
+        board.Enemies.forEach(function(enemy) {
+          if (enemy.IsCrushed == false) {
+            var id = enemy.X + ":" + enemy.Y;
+            var div = document.createElement('div');
+            var eName = "enemy_" + enemy.Type;
+            var eId = "e:" + enemy.X + ":" + enemy.Y;
+            div.setAttribute("id", eId);
+            div.setAttribute("class", eName);
+            document.getElementById(id).appendChild(div);
+          }
+        })
+      }
+
+      // gets the player color [blue, green]
+      function getColor(id) {
+        if(id == 1) {
+          return "green";
+        }
+        return "blue";
+      }
+
+      // xhr client
+      function doGet(url, cb) {
+        xhr = new XMLHttpRequest();
+        xhr.onreadystatechange=function() {
+          if (xhr.readyState == 4 && xhr.status==200) {
+            var resp = JSON.parse(xhr.responseText);
+            cb(resp);
+          }
+        }
+        xhr.open("GET", url, true);
+        xhr.send();
+      }
+
+      // xhr request to get board updates
+      function update() {
+        doGet("/board", function(board) {
+          // remove players
+          players.forEach(function(player) {
+            if (player.parentElement) {
+              player.parentElement.removeChild(player);
+            }
+          })
+
+          // update player pos
+          board.Players.forEach(function(player) {
+            var id = player.X + ":" + player.Y;
+            var div = document.createElement('div');
+            var pName = "player_" + player.Id;
+            div.setAttribute("class", pName);
+            document.getElementById(id).appendChild(div);
+
+            players.push(div);
+
+            document.getElementById("p" + player.Id + "score").innerHTML = player.Score;
+          });
+
+          // update enemy status
+          board.Enemies.forEach(function(enemy) {
+            if (enemy.IsCrushed) {
+              var id = "e:" + enemy.X + ":" + enemy.Y;
+              e = document.getElementById(id);
+              if (e) {
+                e.parentElement.removeChild(e);
+              }
+            }
+          });
+        });
+      }
+
+      function reset() {
+        doGet("/reset", function(){
+          doGet("/board", function(b) {
+            board = b;
+            init();
+          });
+        });
+      }
+
+      function play() {
+        doGet("/play", function(){});
+      }
+
+      function setPorts(event) {
+          //loop through bot list and set active ones
+          list = document.getElementById('botList')
+          var botItems = list.getElementsByTagName('li')
+          p1 = 8081;
+          for(var i=0; i< botItems.length; i++) {
+            if(botItems[i].className == 'active p1') {
+              p1 = botItems[i].id;
+              document.getElementById('p1Name').innerHTML = botItems[i].innerHTML;
+            }
+          }
+        doGet("/setport?player1="+p1+"&player2=8082", function(){});
+      }
+
+      document.getElementById("btnReset").onclick=function(){reset()};
+      document.getElementById("btnPlay").onclick=function(){play()};
+      document.getElementById("botList").onclick=function(){setPorts()};
+
+      var int = self.setInterval(function(){update()}, 150);
+
+    </script>
+</body>
+</html>

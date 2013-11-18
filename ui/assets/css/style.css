@@ -1,0 +1,438 @@
+body {
+  background: url(../images/pixel_weave.png) repeat;
+}
+
+.g_divider {
+  width: 100%;
+  font-size: 0px;
+  line-height: 0px;
+  overflow:hidden;
+  clear: both;
+}
+
+@font-face {
+  font-family: 'Orbitron';
+  src: url('orbitron-black-webfont.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'LeagueGothic';
+  src: url('leaguegothic-regular-webfont.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'OrbitronLight';
+  src: url('orbitron-light-webfont.svg') format('svg');
+}
+
+
+@font-face {
+  font-family: 'OrbitronBold';
+  src: url('orbitron-bold-webfont.svg') format('svg');
+}
+
+@font-face {
+  font-family: 'OrbitronMedium';
+  src: url('orbitron-medium-webfont.svg') format('svg');
+}
+
+/* Players */
+.player_1 {
+  background:url(../images/critter_player1.gif) no-repeat;
+  height:48px;
+  width:48px;
+  position:absolute;
+  left:0px;
+  top:0px;
+  z-index:1;
+}
+
+.player_2 {
+  background:url(../images/critter_player2.gif) no-repeat;
+  height:48px;
+  width:48px;
+  position:absolute;
+  left:15px;
+  top:0px;
+  z-index:1;
+}
+
+/* Enemies */
+.enemy_1 {
+  background:url(../images/critter_small.gif) no-repeat;
+  height:48px;
+  width:48px;
+}
+
+.enemy_2 {
+  background:url(../images/critter_elephant.jpg) no-repeat;
+  height:48px;
+  width:48px;
+}
+
+.enemy_3 {
+  background:url(../images/critter_alien.gif) no-repeat;
+  height:48px;
+  width:48px;
+}
+
+/* Environment objets */
+.env_0 {
+  background:url(../images/critter_brick.jpeg) no-repeat; 
+  height:50px;
+  width:50px;
+}
+.button {
+  cursor: pointer;
+  width: 60;
+  height: 60;
+  font-size: 30px;
+  -webkit-border-radius: 60px;
+  -moz-border-radius: 60px;
+  -ms-border-radius: 60px;
+  -o-border-radius: 60px;
+  border-radius: 60px;
+  border: #fc2c71 1px solid;
+  background-color: #fc2c71;
+  background-image: -webkit-gradient(radial, 40px 40px, 0, 40px 40px, 65, color-stop(23.07692%, #fc2c71), color-stop(46.15385%, #fc4a85), color-stop(61.53846%, #fc4a85), color-stop(100%, #fc276e));
+  background-image: -webkit-radial-gradient(40px 40px, circle contain, #fc2c71 15px, #fc4a85 30px, #fc4a85 40px, #fc276e 65px);
+  background-image: -moz-radial-gradient(40px 40px, circle contain, #fc2c71 15px, #fc4a85 30px, #fc4a85 40px, #fc276e 65px);
+  background-image: -o-radial-gradient(40px 40px, circle contain, #fc2c71 15px, #fc4a85 30px, #fc4a85 40px, #fc276e 65px);
+  background-image: radial-gradient(40px 40px, circle contain, #fc2c71 15px, #fc4a85 30px, #fc4a85 40px, #fc276e 65px);
+  background-position: center center;
+  background-repeat: no-repeat;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(255, 255, 255, 0.7) 0 3px 3px inset, #5b011f 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.5) 0 -2px 3px inset, #8d0230 0 -7px 20px inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(255, 255, 255, 0.7) 0 3px 3px inset, #5b011f 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.5) 0 -2px 3px inset, #8d0230 0 -7px 20px inset;
+  box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(255, 255, 255, 0.7) 0 3px 3px inset, #5b011f 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.5) 0 -2px 3px inset, #8d0230 0 -7px 20px inset;
+}
+
+.buttonText {
+  font-family:"OrbitronBold";
+  font-size:13px;
+  margin-top:25px;
+  text-align:center;
+  text-shadow: 1px 1px 0px #fd8eb6; 
+  color:#DDD;
+}
+
+.button:hover {
+  background-image: -webkit-gradient(radial, 40px 40px, 0, 40px 40px, 65, color-stop(0%, #fc4582), color-stop(46.15385%, #fd5e93), color-stop(61.53846%, #fd5e93), color-stop(100%, #fc4582));
+  background-image: -webkit-radial-gradient(40px 40px, circle contain, #fc4582, #fd5e93 30px, #fd5e93 40px, #fc4582 65px);
+  background-image: -moz-radial-gradient(40px 40px, circle contain, #fc4582, #fd5e93 30px, #fd5e93 40px, #fc4582 65px);
+  background-image: -o-radial-gradient(40px 40px, circle contain, #fc4582, #fd5e93 30px, #fd5e93 40px, #fc4582 65px);
+  background-image: radial-gradient(40px 40px, circle contain, #fc4582, #fd5e93 30px, #fd5e93 40px, #fc4582 65px);
+  -webkit-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(255, 255, 255, 0.9) 0 3px 3px inset, #8d0230 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.5) 0 -2px 3px inset, #8d0230 0 -7px 20px inset;
+  -moz-box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(255, 255, 255, 0.9) 0 3px 3px inset, #8d0230 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.5) 0 -2px 3px inset, #8d0230 0 -7px 20px inset;
+  box-shadow: rgba(0, 0, 0, 0.8) 0 0 10px 5px, rgba(255, 255, 255, 0.9) 0 3px 3px inset, #8d0230 0 8px 10px inset, rgba(0, 0, 0, 0.3) 0 20px 10px inset, rgba(255, 255, 255, 0.5) 0 -2px 3px inset, #8d0230 0 -7px 20px inset;
+}
+
+.buttonContainer {
+  padding: 15px;
+  background: #f20352;
+  width: 60px;
+  height: 60px;
+  -webkit-border-radius: 80px;
+  -moz-border-radius: 80px;
+  -ms-border-radius: 80px;
+  -o-border-radius: 80px;
+  border-radius: 80px;
+  -webkit-box-shadow: #bf0341 0 4px 5px inset, rgba(255, 255, 255, 0.5) 0 12px 5px inset, #8d0230 0 -12px 5px inset, rgba(0, 0, 0, 0.8) 0 4px 8px;
+  -moz-box-shadow: #bf0341 0 4px 5px inset, rgba(255, 255, 255, 0.5) 0 12px 5px inset, #8d0230 0 -12px 5px inset, rgba(0, 0, 0, 0.8) 0 4px 8px;
+  box-shadow: #bf0341 0 4px 5px inset, rgba(255, 255, 255, 0.5) 0 12px 5px inset, #8d0230 0 -12px 5px inset, rgba(0, 0, 0, 0.8) 0 4px 8px;
+  float:left;
+  margin:10px;
+}
+
+.container {
+  position:relative;
+  width:1000px;
+  margin: 0 auto;
+}
+
+.titleContainer{
+  width:562px;
+  margin:0 auto;
+}
+
+/* scoreboard */
+.scoreBoard {
+  margin-top:107px;
+}
+
+.rightContainer {
+  float:left; 
+  width:350px;
+  font-family:"OrbitronBold";
+  font-size:16px;
+  background:#FFF;
+  border:1px solid #333;
+  margin-left:20px;
+}
+
+.rightContainer h1 {
+  font-size:22px;
+  color:#555;
+}
+
+@-webkit-keyframes turnonlights {
+    0%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    1%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    4%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    7%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    8%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    12%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    22%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    23%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 15px #99ffba, 0 0 20px #00ff21, 0 0 30px #00ff21, 0 0 40px #00ff21; }
+    26%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    28%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    34%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 15px #99ffba, 0 0 20px #00ff21, 0 0 30px #00ff21, 0 0 40px #00ff21; }
+    36%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    42%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    55%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 15px #99ffba, 0 0 20px #00ff21, 0 0 30px #00ff21, 0 0 40px #00ff21; }
+    60%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    63%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 15px #99ffba, 0 0 20px #00ff21, 0 0 30px #00ff21, 0 0 40px #00ff21; }
+    67%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    72%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    73%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    76%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    78%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    84%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 15px #99ffba, 0 0 20px #00ff21, 0 0 30px #00ff21, 0 0 40px #00ff21; }
+    86%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    96%    { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    100%    { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 15px #99ffba, 0 0 20px #00ff21, 0 0 30px #00ff21, 0 0 40px #00ff21; }
+}
+@-moz-keyframes turnonlights {
+    0%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    1%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    4%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    7%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    8%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    12%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    22%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    23%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 15px #99ffba, 0 0 20px #00ff21, 0 0 30px #00ff21, 0 0 40px #00ff21; }
+    26%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    28%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    34%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 15px #99ffba, 0 0 20px #00ff21, 0 0 30px #00ff21, 0 0 40px #00ff21; }
+    36%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    42%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    55%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 15px #99ffba, 0 0 20px #00ff21, 0 0 30px #00ff21, 0 0 40px #00ff21; }
+    60%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    63%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 15px #99ffba, 0 0 20px #00ff21, 0 0 30px #00ff21, 0 0 40px #00ff21; }
+    67%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    72%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    73%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    76%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    78%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    84%        { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 15px #99ffba, 0 0 20px #00ff21, 0 0 30px #00ff21, 0 0 40px #00ff21; }
+    86%        { color: #566d5a; text-shadow: 0 0 3px #58635a, 0 0 5px #58635a; }
+    96%    { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 17px #00ff21, 0 0 38px #00ff21}
+    100%    { color: #00b317; text-shadow: 0 0 5px #99ffba, 0 0 10px #99ffba, 0 0 15px #99ffba, 0 0 20px #00ff21, 0 0 30px #00ff21, 0 0 40px #00ff21; }
+}
+
+#scoreBoardTitle {
+    text-align: center;
+    letter-spacing: 0.15em;
+    font-family: "OrbitronBold";
+    font-weight: 700;
+    font-size: 28px; 
+    text-transform: uppercase;
+    color: #566d5a;
+    text-shadow: 0 0 3px #58635a, 0 0 5px #58635a;  
+    padding:8px;
+    background:#333;
+    height:25px;
+}
+
+.animate {
+  -webkit-animation-name: turnonlights;
+  -webkit-animation-duration: 3.0s;
+  -webkit-animation-fill-mode: both;
+  -webkit-animation-timing-function: steps(2, start);
+  -moz-animation-name: turnonlights;
+  -moz-animation-duration: 3.0s;
+  -moz-animation-fill-mode: both;
+  -moz-animation-timing-function: steps(2, start);
+}
+
+/* Shadow */
+.shadow
+{
+  position: relative;
+}
+.shadow:before, .shadow:after
+{
+  z-index: -1;
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  left: 10px;
+  width: 50%;
+  top: 80%;
+  max-width:300px;
+  background: #777;
+  -webkit-box-shadow: 0 15px 10px #777;
+  -moz-box-shadow: 0 15px 10px #777;
+  box-shadow: 0 15px 10px #777;
+  -webkit-transform: rotate(-3deg);
+  -moz-transform: rotate(-3deg);
+  -o-transform: rotate(-3deg);
+  -ms-transform: rotate(-3deg);
+  transform: rotate(-3deg);
+}
+.shadow:after
+{
+  -webkit-transform: rotate(3deg);
+  -moz-transform: rotate(3deg);
+  -o-transform: rotate(3deg);
+  -ms-transform: rotate(3deg);
+  transform: rotate(3deg);
+  right: 10px;
+  left: auto;
+}
+
+.leftTitle{
+  -webkit-transform: rotate(-45deg); 
+  -moz-transform: rotate(-45deg);  
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=-5); /*for IE*/
+  width:30px;
+  height:105px;
+  float:left;
+  background:white;
+}
+
+.rightTitle{
+  -webkit-transform: rotate(45deg); 
+  -moz-transform: rotate(45deg);  
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=5); /*for IE*/
+  width:30px;
+  height:105px;
+  float:left;
+  background:white;
+}
+
+.middleTop {
+  width:501px;
+  background:#333;
+  float:left;
+  height:105px;
+}
+
+.title {
+  font-family:'LeagueGothic';
+  font-size:60px;
+  height:78px;
+  text-transform:uppercase;
+  text-align:center;
+  font-weight:bold;
+  width:596px;
+  text-transform: uppercase;
+  margin:0 auto;
+  color: #FF4900;
+  text-shadow: 5px 5px 0px #eee, 7px 7px 0px #707070;
+  background-color:white;
+  padding-top:25px;
+  background:url(../images/title_background.gif) white no-repeat;
+  border:2px solid #333;
+  float:left;
+}
+
+#buttons {
+  border:5px solid #333;
+  background: url(../images/metal.png);
+  border-bottom-left-radius: 45px; 
+  border-bottom-right-radius: 45px; 
+  width:590px;
+}
+
+.coinSlot {
+  float: left;
+  height: 82px;
+  width: 72px;
+  margin-left: 146px;
+  margin-top: 12px;
+  border:1px solid #333;
+  background-color:#555;
+}
+    
+.coinInner {
+  border: 2px solid #c61a1a;
+  width: 65px;
+  height: 75px;
+  background-color: #c61a1a;
+  margin-top: 2px;
+  margin-left: 2px;
+  box-shadow: 0px 0px 5px #333;
+}
+
+.coinLeft {
+  float:left;
+  height:68px;
+  width:6px;
+  margin: 4px 3px;
+  background:#000;
+  box-shadow: 0px 0px 5px #fff;
+}
+
+.coinRight {
+  float: left;
+  width: 47px;
+  background: #000;
+  height: 68px;
+  margin: 4px 0px 4px 3px;
+  text-shadow: 0 0 10px #c61a1a;
+  font-size: 18px;
+  color: #c61a1a;
+  font-family: Arial;
+  text-align:center; 
+  box-shadow: 0px 0px 5px #fff;
+}
+
+li.nonActive {
+  -webkit-opacity: 0.5;
+  -moz-opacity: 0.5;
+  opacity: 0.5;
+}
+
+ul#botlist {
+  margin:0;
+  padding:0;
+  padding-left:10px;
+}
+
+ul#botlist li {
+  list-style:none;
+  cursor:pointer;
+  font-size:22px;
+  color:#555;
+  margin:10px 0px;
+}
+
+ul#botlist li.active.p2 {
+  color:blue;
+}
+
+ul#botlist li.active.p1 {
+  color:red;
+}
+
+
+ul#botScore {
+  margin:0;
+  padding:2px;
+}
+
+ul#botScore li {
+  list-style:none;
+}
+
+#btnPort {
+ font-family:"Arial";
+  clear:both; 
+  color:blue;
+  padding:10px;
+  cursor:pointer
+}
+
+#btnPort:hover {
+  text-decoration:underline;
+}
