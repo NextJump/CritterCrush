@@ -7,7 +7,7 @@ import (
 	"log"
 	"math/rand"
 	"net/http"
-	"cw/critter/engine"
+    "github.com/nextjump/CritterCrush/engine"
 	"strconv"
 	"time"
 )
