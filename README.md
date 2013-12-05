@@ -10,7 +10,7 @@ Clone the repository into your gopath
 
     mkdir -p $GOPATH/src/github.com/nextjump
     cd $GOPATH/src/github.com/nextjump
-    git clone https://github.com/boombador/BotWorld.git
+    git clone https://github.com/NextJump/CritterCrush.git
 
 CD into the repository and start your server with the following command
 
