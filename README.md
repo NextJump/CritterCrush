@@ -30,6 +30,14 @@ This lets you know that the server is running and listening on port 8080. If you
     
 to see which process is running and kill it if necessary. You can also change the port numbers the server listens on inside of the base level critter.go file. 
 
-Once the server is running, you should be able to see the game at locahost:8080/game
+The final step is to set up your bots. The bots listen to points 8081 and 8082 by default. You can start them the same where you started teh game server. Run 
+
+    go install github.com/nextjump/CritterCrush/bots/bot1
+    $GOPATH/bin/bot1
+    
+    go install github.com/nextjump/CritterCrush/bots/bot2
+    $GOPATH/bin/bot2
+
+Once the server and bots are both running, you should be able to see the game at locahost:8080/game
 
 Still needs more tweaking before the PLAY button works with this new layout...
