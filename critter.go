@@ -7,6 +7,7 @@ import (
     "net/http"
     "github.com/nextjump/CritterCrush/engine"
     "strconv"
+    "log"
 )
 
 var game *engine.GameEngine
@@ -36,7 +37,7 @@ func gameHandler(w http.ResponseWriter, r *http.Request) {
       fmt.Println("Error marshalling game board: " + err.Error())
     }
 
-    t, err := template.ParseFiles("ui/index.html")
+    t, err := template.ParseFiles("src/github.com/nextjump/CritterCrush/ui/index.html")
     if err != nil {
       fmt.Println("Error parsing template: " + err.Error())
     }
@@ -73,7 +74,9 @@ func main() {
     http.HandleFunc("/reset", resetHandler)
     http.HandleFunc("/setport", setportHandler)
 
-    http.Handle("/", http.FileServer(http.Dir("ui/assets")))
-
-    http.ListenAndServe(":8080", nil)
+    //set up static asset handler
+    http.Handle("/", http.StripPrefix("/", http.FileServer(http.Dir("src/github.com/nextjump/CritterCrush/ui"))))
+    if err := http.ListenAndServe(":8080", nil); err != nil {
+        log.Fatal("ListenAndServe: ", err)
+    }
 }
